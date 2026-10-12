@@ -1,0 +1,52 @@
+# Local configuration and secrets
+.local/
+.env
+.env.*
+!.env.example
+
+# Python environments and caches
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+build/
+dist/
+.ipynb_checkpoints/
+
+# Frontend dependencies and generated output
+node_modules/
+.next/
+out/
+*.tsbuildinfo
+test-results/
+playwright-report/
+*.log
+
+# Local datasets and generated model artifacts
+/ml/data/raw/*
+!/ml/data/raw/.gitkeep
+/ml/data/processed/*
+!/ml/data/processed/.gitkeep
+!/ml/data/processed/*.md
+/ml/models/*
+!/ml/models/.gitkeep
+/ml/evaluation/*.csv
+/ml/evaluation/*.json
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Vercel local metadata
+.vercel/
+
+# Internal development instructions
+frontend/AGENTS.md
+frontend/CLAUDE.md
+docs/CODEX_WORKFLOW.md
