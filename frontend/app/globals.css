@@ -898,9 +898,6 @@ input:focus-visible {
   .pitch-panel {
     height: 330px;
   }
-  .rank-player .preview-portrait {
-    display: none;
-  }
   .ranking-card {
     padding: 18px 16px 5px;
   }
@@ -1044,9 +1041,6 @@ input:focus-visible {
   .rankings-grid {
     grid-template-columns: 1fr;
   }
-  .rank-player .preview-portrait {
-    display: grid;
-  }
   .ranking-row,
   .ranking-columns {
     grid-template-columns: 1fr 95px 85px;
@@ -1148,9 +1142,6 @@ input:focus-visible {
   .ranking-columns {
     grid-template-columns: minmax(0, 1fr) 65px 65px;
     gap: var(--space-2);
-  }
-  .rank-player .preview-portrait {
-    display: none;
   }
   .rank-player strong {
     font-size: var(--text-label);

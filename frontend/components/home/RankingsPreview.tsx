@@ -6,6 +6,7 @@ import {
 import type { RankingResponse } from "@/lib/api/types";
 import { formatDifference, formatMoney, fullMoney } from "@/lib/format";
 import { PlayerAvatar } from "../player/PlayerAvatar";
+import avatarStyles from "../player/PlayerAvatar.module.css";
 import { Unavailable } from "../ui/States";
 export function RankingCard({
   data,
@@ -44,7 +45,7 @@ export function RankingCard({
                       name={player.player_name}
                       position={player.position}
                       size="sm"
-                      className="preview-portrait"
+                      className={avatarStyles.preview}
                     />
                     <div>
                       <strong>{player.player_name}</strong>

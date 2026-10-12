@@ -120,7 +120,25 @@
   top: 20%;
   left: 14%;
 }
+/* Preview columns are too narrow for portraits in these existing layouts. */
+@media (min-width: 761px) and (max-width: 1100px), (max-width: 480px) {
+  .preview {
+    display: none;
+  }
+}
 @media (max-width: 760px) {
+  /* Ranking cards use the uncluttered XS treatment on mobile. */
+  .sm {
+    width: 36px;
+    height: 42px;
+    gap: 0;
+  }
+  .sm .monogram {
+    font-size: 22px;
+  }
+  .sm .position {
+    display: none;
+  }
   .hero {
     width: 104px;
     height: 132px;
