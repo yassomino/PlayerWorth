@@ -38,7 +38,11 @@ export function RankingsTable({ data }: { data: RankingResponse }) {
               <Link
                 href={`/players/${player.player_id}?${new URLSearchParams({ season: player.season })}`}
               >
-                <PlayerAvatar name={player.player_name} />
+                <PlayerAvatar
+                  name={player.player_name}
+                  position={player.position}
+                  size="sm"
+                />
                 <span>
                   <strong>{player.player_name}</strong>
                   <small>{player.club ?? "Club unavailable"}</small>

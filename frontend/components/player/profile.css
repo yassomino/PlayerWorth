@@ -1,9 +1,12 @@
 /* Profile-specific semantic aliases make a later global recolor independent of layout. */
 .player-profile {
   padding-block: 32px 64px;
-  --profile-chart: var(--chart-1);
+  --profile-chart: var(--chart-observed);
   --profile-control: var(--primary);
   --profile-emphasis: var(--foreground);
+}
+.pp-portrait {
+  flex: 0 0 auto;
 }
 .pp-header-main {
   display: flex;
@@ -11,41 +14,7 @@
   gap: 28px;
   padding-block: 36px;
 }
-.pp-portrait {
-  width: 138px;
-  height: 148px;
-  flex-shrink: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  position: relative;
-  border-radius: var(--radius-surface);
-  background: linear-gradient(150deg, var(--surface-3), var(--surface-1));
-  border: 1px solid var(--border);
-}
-.pp-portrait:before {
-  content: "";
-  position: absolute;
-  inset: 10px;
-  border-radius: var(--radius);
-  border: 1px solid var(--secondary);
-}
-.pp-portrait .avatar {
-  width: auto;
-  height: auto;
-  font-size: 62px;
-  line-height: 1;
-  border: 0;
-  background: none;
-  font-weight: 600;
-  color: var(--primary);
-}
-.pp-portrait > span {
-  font-size: 11px;
-  letter-spacing: 0.12em;
-}
+
 .pp-identity {
   min-width: 0;
 }
@@ -69,13 +38,13 @@
   flex-wrap: wrap;
   gap: 8px 18px;
   color: var(--muted);
-  font-size: 11px;
+  font-size: var(--text-label);
   margin-top: 12px;
 }
 .pp-simulator-link {
   margin-left: auto;
   border-bottom: 1px solid var(--border);
-  font-size: 11px;
+  font-size: var(--text-label);
   max-width: 155px;
   padding: 12px 0;
 }
@@ -103,7 +72,7 @@
   gap: 14px;
 }
 .pp-season-select label {
-  font-size: 11px;
+  font-size: var(--text-label);
   color: var(--muted);
 }
 .player-profile select {
@@ -119,13 +88,13 @@
   display: grid;
   grid-template-columns: 1.35fr 1fr;
   margin-bottom: 28px;
-  padding: 32px 36px;
+  padding: var(--space-8);
   gap: 28px;
   min-height: 230px;
   align-items: center;
   border: 0;
-  border-radius: var(--radius-surface);
-  background: linear-gradient(120deg, var(--surface-2), var(--surface-1));
+  border-radius: var(--radius-feature);
+  background: var(--surface-feature);
   box-shadow: var(--shadow);
 }
 .pp-big-value {
@@ -135,7 +104,7 @@
   letter-spacing: -0.02em;
   display: block;
   color: var(--profile-emphasis);
-  font-variant-numeric: tabular-nums;
+  font-variant-numeric: var(--numeric-variant);
   margin: 8px 0;
   font-size: clamp(72px, 8.5vw, 118px);
 }
@@ -154,7 +123,7 @@
 .pp-delta {
   display: flex;
   align-items: baseline;
-  gap: 12px;
+  gap: var(--space-3);
   flex-wrap: wrap;
 }
 .pp-delta strong {
@@ -162,7 +131,7 @@
   font-size: 29px;
   line-height: 1;
   font-weight: 600;
-  font-variant-numeric: tabular-nums;
+  font-variant-numeric: var(--numeric-variant);
 }
 .pp-delta.positive strong {
   color: var(--positive);
@@ -171,12 +140,12 @@
   color: var(--negative);
 }
 .pp-delta span {
-  font-size: 11px;
+  font-size: var(--text-label);
   color: var(--muted);
   max-width: 230px;
 }
 .pp-note {
-  font-size: 11px;
+  font-size: var(--text-label);
   line-height: 1.7;
   color: var(--muted);
   margin: 12px 0 0;
@@ -201,7 +170,7 @@
 }
 .pp-section-title .eyebrow,
 .pp-input-panel .eyebrow {
-  font-size: 11px;
+  font-size: var(--text-label);
 }
 .pp-stats {
   padding-top: 10px;
@@ -215,7 +184,7 @@
   gap: 18px;
 }
 .pp-stat-grid dt {
-  font-size: 11px;
+  font-size: var(--text-label);
   color: var(--muted);
 }
 .pp-stat-grid dd {
@@ -224,7 +193,7 @@
   font-weight: 500;
   line-height: 1.25;
   margin: 5px 0 0;
-  font-variant-numeric: tabular-nums;
+  font-variant-numeric: var(--numeric-variant);
 }
 .pp-secondary-stats {
   display: grid;
@@ -234,18 +203,18 @@
 }
 .pp-secondary-stats dt {
   color: var(--muted);
-  font-size: 11px;
+  font-size: var(--text-label);
 }
 .pp-secondary-stats dd {
   font-size: 17px;
-  font-variant-numeric: tabular-nums;
+  font-variant-numeric: var(--numeric-variant);
   margin: 5px 0 0;
 }
 .pp-input-panel {
-  padding: 24px;
-  background: var(--surface);
+  padding: var(--space-6);
+  background: var(--surface-data);
   border: 0;
-  border-radius: var(--radius-surface);
+  border-radius: var(--radius-panel);
 }
 .pp-input-panel h2 {
   font-size: 26px;
@@ -256,7 +225,7 @@
 .pp-input-panel dl > div {
   display: flex;
   justify-content: space-between;
-  gap: 16px;
+  gap: var(--space-4);
   padding: 7px 0;
   border-bottom: 1px solid var(--border);
   font-size: 12px;
@@ -266,7 +235,7 @@
 }
 .pp-input-panel dd {
   margin: 0;
-  font-variant-numeric: tabular-nums;
+  font-variant-numeric: var(--numeric-variant);
 }
 .pp-chart-section {
   border-top: 1px solid var(--border);
@@ -292,11 +261,11 @@
   flex-direction: column;
   gap: 3px;
   border-radius: var(--radius);
-  box-shadow: var(--shadow);
+  box-shadow: var(--shadow-overlay);
 }
 .pp-chart-tooltip span,
 .pp-chart-tooltip small {
-  font-size: 11px;
+  font-size: var(--text-label);
   color: var(--muted);
 }
 .pp-chart-tooltip strong {
@@ -314,12 +283,12 @@
   font-size: 12px;
 }
 .pp-simulator {
-  padding: 30px 36px;
+  padding: var(--space-8);
   margin-block: 20px 38px;
   scroll-margin-top: 24px;
   border: 1px solid var(--border);
   border-radius: var(--radius-surface);
-  background: linear-gradient(135deg, var(--surface-2), var(--surface-1));
+  background: var(--surface-interactive);
 }
 .pp-section-index {
   float: right;
@@ -330,19 +299,19 @@
 .pp-simulator-grid {
   display: grid;
   grid-template-columns: 1.5fr 1fr;
-  gap: 48px;
+  gap: var(--space-12);
   margin-top: 30px;
 }
 .pp-controls {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 24px;
+  gap: var(--space-6);
 }
 .pp-control-label {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 12px;
+  gap: var(--space-3);
   margin-bottom: 12px;
 }
 .pp-control label,
@@ -356,7 +325,7 @@
   color: var(--foreground);
   border-radius: var(--radius);
   font-size: 15px;
-  font-variant-numeric: tabular-nums;
+  font-variant-numeric: var(--numeric-variant);
   min-height: 46px;
   border: 1px solid var(--control-border);
 }
@@ -370,7 +339,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 16px;
+  gap: var(--space-4);
   grid-column: 1/-1;
   padding-top: 4px;
 }
@@ -412,7 +381,7 @@
   line-height: 1;
   font-weight: 600;
   letter-spacing: -0.01em;
-  font-variant-numeric: tabular-nums;
+  font-variant-numeric: var(--numeric-variant);
   color: var(--primary);
 }
 .pp-form-actions {
@@ -423,8 +392,8 @@
   margin-top: 24px;
 }
 .pp-button {
-  background: var(--profile-control);
-  color: var(--background);
+  background: var(--action-primary);
+  color: var(--action-on-primary);
   padding: 12px 16px;
   border: 1px solid var(--profile-control);
   border-radius: var(--radius);
@@ -445,11 +414,11 @@
   border-bottom: 1px solid var(--border);
   padding: 9px 0;
   color: var(--foreground);
-  font-size: 11px;
+  font-size: var(--text-label);
   min-height: 44px;
 }
 .pp-field-error {
-  font-size: 11px;
+  font-size: var(--text-label);
   color: var(--negative);
   line-height: 1.6;
 }
@@ -458,7 +427,7 @@
   padding-top: 18px;
   margin: 24px 0 0;
   color: var(--muted);
-  font-size: 11px;
+  font-size: var(--text-label);
   line-height: 1.8;
 }
 .pp-history {
@@ -480,7 +449,7 @@
   font-weight: 500;
 }
 .player-profile thead {
-  font-size: 11px;
+  font-size: var(--text-label);
   color: var(--muted);
 }
 .player-profile th,
@@ -493,7 +462,7 @@
   padding-left: 0;
 }
 .player-profile td {
-  font-variant-numeric: tabular-nums;
+  font-variant-numeric: var(--numeric-variant);
 }
 .player-profile tr.selected {
   background: var(--surface);
@@ -534,7 +503,7 @@
   }
   .pp-performance-grid {
     grid-template-columns: 1.4fr 1fr;
-    gap: 24px;
+    gap: var(--space-6);
   }
   .pp-value-hero {
     padding: 26px;
@@ -546,20 +515,14 @@
     display: none;
   }
   .pp-header-main {
-    gap: 24px;
+    gap: var(--space-6);
   }
 }
 @media (max-width: 760px) {
   .pp-header-main {
     padding-block: 28px;
   }
-  .pp-portrait {
-    width: 95px;
-    height: 110px;
-  }
-  .pp-portrait .avatar {
-    font-size: 48px;
-  }
+
   .pp-identity h1 {
     font-size: 42px;
   }
@@ -567,11 +530,11 @@
     font-size: 13px;
   }
   .pp-meta {
-    font-size: 11px;
+    font-size: var(--text-label);
     gap: 5px 10px;
   }
   .pp-identity .eyebrow {
-    font-size: 11px;
+    font-size: var(--text-label);
   }
   .pp-value-hero {
     grid-template-columns: 1fr;
@@ -631,31 +594,22 @@
     padding-top: 22px;
   }
   .pp-header-main {
-    gap: 16px;
+    gap: var(--space-4);
   }
-  .pp-portrait {
-    width: 74px;
-    height: 100px;
-  }
-  .pp-portrait .avatar {
-    font-size: 40px;
-  }
-  .pp-portrait > span {
-    font-size: 11px;
-  }
+
   .pp-identity h1 {
     font-size: 40px;
     overflow-wrap: anywhere;
   }
   .pp-meta span:last-child {
-    font-size: 11px;
+    font-size: var(--text-label);
   }
   .pp-season-bar p {
-    font-size: 11px;
+    font-size: var(--text-label);
     max-width: 160px;
   }
   .pp-season-select label {
-    font-size: 11px;
+    font-size: var(--text-label);
   }
   .pp-value-hero,
   .pp-simulator {
@@ -665,7 +619,7 @@
     font-size: 74px;
   }
   .pp-value-main .eyebrow {
-    font-size: 11px;
+    font-size: var(--text-label);
   }
   .pp-stat-grid {
     gap: 10px;
@@ -674,7 +628,7 @@
     font-size: 36px;
   }
   .pp-stat-grid dt {
-    font-size: 11px;
+    font-size: var(--text-label);
   }
   .pp-secondary-stats {
     grid-template-columns: 1fr 1fr;
@@ -697,25 +651,25 @@
     grid-template-columns: 1fr;
   }
   .pp-chart-section .pp-note {
-    font-size: 11px;
+    font-size: var(--text-label);
   }
   .pp-section-title .eyebrow {
-    font-size: 11px;
+    font-size: var(--text-label);
     letter-spacing: 0.1em;
   }
   .pp-chart-data table {
-    font-size: 11px;
+    font-size: var(--text-label);
   }
   .pp-note {
-    font-size: 11px;
+    font-size: var(--text-label);
   }
   .pp-form-actions {
-    gap: 12px;
+    gap: var(--space-3);
   }
   .pp-button {
-    font-size: 11px;
+    font-size: var(--text-label);
   }
   .pp-reset {
-    font-size: 11px;
+    font-size: var(--text-label);
   }
 }

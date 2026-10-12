@@ -8,31 +8,65 @@
 }
 :root {
   color-scheme: dark;
-  --background: #0c1021;
-  --surface-1: #151a31;
-  --surface-2: #1d2440;
-  --surface-3: #28304e;
-  --foreground: #f3f5ff;
-  --muted: #b3bbd4;
-  --primary: #56e2dc;
-  --secondary: #b4a0ff;
-  --highlight: #ff91b1;
-  --positive: #83e1b5;
-  --negative: #ffad9b;
-  --border: #35405e;
+  --background: #090d1a;
+  --surface-1: #101629;
+  --surface-2: #171e34;
+  --surface-3: #202944;
+  --foreground: #f4f6fc;
+  --muted: #98a4bc;
+  --primary: #55ded5;
+  --secondary: #a99bff;
+  --highlight: #f58ead;
+  --positive: #72dcae;
+  --negative: #ff927f;
+  --border: #29334d;
+  /* Controls retain stronger boundaries than decorative dividers. */
   --control-border: #697694;
   --focus: #84eff0;
-  --chart-1: var(--primary);
-  --chart-2: var(--secondary);
+  --surface-editorial: transparent;
+  --surface-data: var(--surface-1);
+  --surface-interactive: var(--surface-2);
+  --surface-feature: var(--surface-3);
+  --chart-estimate: var(--primary);
+  --chart-observed: var(--secondary);
+  --chart-positive: var(--positive);
+  --chart-negative: var(--negative);
+  --chart-1: var(--chart-estimate);
+  --chart-2: var(--chart-observed);
   --chart-3: var(--highlight);
   --chart-grid: var(--border);
   --surface: var(--surface-1);
   --surface-raised: var(--surface-2);
   --accent: var(--primary);
-  --radius: 8px;
-  --radius-surface: 18px;
-  --shadow: 0 16px 40px rgb(0 0 0 / 22%);
-  --space: 8px;
+  --radius-badge: 6px;
+  --radius-control: 8px;
+  --radius-panel: 12px;
+  --radius-major: 16px;
+  --radius-feature: 20px;
+  --radius: var(--radius-control);
+  --radius-surface: var(--radius-major);
+  --shadow: none;
+  --shadow-overlay: 0 12px 32px rgb(0 0 0 / 24%);
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-24: 96px;
+  --space: var(--space-2);
+  --text-label: 11px;
+  --text-body: 14px;
+  --numeric-variant: lining-nums tabular-nums;
+  --action-primary: var(--primary);
+  --action-on-primary: var(--background);
+  --action-secondary: var(--surface-interactive);
+  --action-text: var(--foreground);
+  --duration-control: 140ms;
+  --duration-state: 220ms;
+  --duration-reveal: 320ms;
 }
 * {
   box-sizing: border-box;
@@ -46,7 +80,7 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Inter, sans-serif;
-  font-size: 14px;
+  font-size: var(--text-body);
   line-height: 1.6;
 }
 a {
@@ -54,8 +88,16 @@ a {
   text-decoration: none;
 }
 button,
-input {
+input,
+select,
+textarea {
   font: inherit;
+}
+/* Comparable values share numeral widths without changing their display scale. */
+table,
+input[type="number"],
+dl dd {
+  font-variant-numeric: var(--numeric-variant);
 }
 button,
 a,
@@ -92,7 +134,7 @@ input:focus-visible {
   font-size: 12px;
 }
 .eyebrow {
-  font-size: 11px;
+  font-size: var(--text-label);
   font-weight: 600;
   letter-spacing: 0.15em;
   color: var(--muted);
@@ -174,11 +216,11 @@ input:focus-visible {
 }
 .nav-context {
   margin-left: auto;
-  font-size: 11px;
+  font-size: var(--text-label);
   letter-spacing: 0.12em;
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: var(--space-3);
   color: var(--muted);
 }
 .menu-toggle {
@@ -207,7 +249,7 @@ input:focus-visible {
   display: flex;
   align-items: center;
   gap: 10px;
-  font-size: 11px;
+  font-size: var(--text-label);
   color: var(--secondary);
 }
 .hero h1 {
@@ -256,7 +298,7 @@ input:focus-visible {
   right: 20px;
   display: flex;
   justify-content: space-between;
-  font-size: 11px;
+  font-size: var(--text-label);
   letter-spacing: 0.14em;
   color: var(--muted);
 }
@@ -363,7 +405,7 @@ input:focus-visible {
 .search-label {
   display: block;
   margin-bottom: 9px;
-  font-size: 11px;
+  font-size: var(--text-label);
 }
 .search-control {
   display: flex;
@@ -407,7 +449,7 @@ input:focus-visible {
   height: 44px;
 }
 .search-hint {
-  font-size: 11px;
+  font-size: var(--text-label);
   color: var(--muted);
   margin: 10px 0 0;
 }
@@ -422,8 +464,8 @@ input:focus-visible {
   overflow-y: auto;
   top: 100px;
   border: 1px solid var(--control-border);
-  border-radius: 12px;
-  box-shadow: var(--shadow);
+  border-radius: var(--radius-panel);
+  box-shadow: var(--shadow-overlay);
 }
 .search-dropdown ul {
   list-style: none;
@@ -433,7 +475,7 @@ input:focus-visible {
 .search-dropdown li a {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: var(--space-3);
   padding: 12px;
   min-height: 62px;
 }
@@ -451,43 +493,30 @@ input:focus-visible {
   font-size: 14px;
 }
 .result-info > span {
-  font-size: 11px;
+  font-size: var(--text-label);
   color: var(--muted);
 }
 .position {
-  font-size: 11px;
+  font-size: var(--text-label);
   padding: 1px 6px;
   border: 1px solid var(--control-border);
   color: var(--secondary);
-  border-radius: 5px;
-}
-.avatar {
-  height: 35px;
-  width: 35px;
-  flex-shrink: 0;
-  border: 1px solid var(--border);
-  display: grid;
-  place-items: center;
-  font-family: "Barlow Condensed", sans-serif;
-  font-size: 18px;
-  background: var(--surface-raised);
-  border-radius: var(--radius);
-  color: var(--secondary);
+  border-radius: var(--radius-badge);
 }
 .search-message {
   padding: 20px;
   font-size: 13px;
 }
 .snapshot-section {
-  background: var(--surface-1);
-  border-radius: var(--radius-surface);
-  padding-inline: 24px;
+  background: var(--surface-data);
+  border-radius: var(--radius-panel);
+  padding-inline: var(--space-6);
 }
 .snapshot-grid {
   display: grid;
   grid-template-columns: 1.1fr 1fr 0.8fr 1fr;
-  gap: 24px;
-  padding-block: 30px;
+  gap: var(--space-6);
+  padding-block: var(--space-8);
 }
 .snapshot-intro h2 {
   font-family: "Barlow Condensed", sans-serif;
@@ -497,7 +526,7 @@ input:focus-visible {
 }
 .snapshot-intro p {
   margin: 4px 0 8px;
-  font-size: 11px;
+  font-size: var(--text-label);
   color: var(--muted);
 }
 .text-link {
@@ -519,7 +548,7 @@ input:focus-visible {
   justify-content: center;
 }
 .metric-label {
-  font-size: 11px;
+  font-size: var(--text-label);
   letter-spacing: 0.08em;
   color: var(--muted);
 }
@@ -527,19 +556,19 @@ input:focus-visible {
   font-family: "Barlow Condensed", sans-serif;
   font-weight: 600;
   font-size: 53px;
-  font-variant-numeric: tabular-nums;
+  font-variant-numeric: var(--numeric-variant);
   line-height: 1.2;
   letter-spacing: -0.015em;
 }
 .metric > span:last-child {
-  font-size: 11px;
+  font-size: var(--text-label);
   color: var(--muted);
 }
 .evaluation-note {
   border-top: 1px solid var(--border);
   margin: 0;
   padding: 11px 0;
-  font-size: 11px;
+  font-size: var(--text-label);
   letter-spacing: 0.06em;
   color: var(--accent);
   display: flex;
@@ -548,7 +577,7 @@ input:focus-visible {
 }
 .evaluation-note span {
   color: var(--muted);
-  font-size: 11px;
+  font-size: var(--text-label);
   letter-spacing: 0;
 }
 .watch {
@@ -576,7 +605,7 @@ input:focus-visible {
   background: var(--surface);
   padding: 22px 22px 5px;
   min-width: 0;
-  border-radius: var(--radius-surface);
+  border-radius: var(--radius-panel);
 }
 .ranking-heading {
   display: flex;
@@ -598,18 +627,18 @@ input:focus-visible {
   color: var(--negative);
 }
 .season-tag {
-  font-size: 11px;
+  font-size: var(--text-label);
   color: var(--muted);
   white-space: nowrap;
   background: var(--surface-2);
-  border-radius: 5px;
+  border-radius: var(--radius-badge);
   padding: 3px 8px;
 }
 .ranking-columns {
   display: grid;
   grid-template-columns: 1fr 95px 82px;
-  gap: 12px;
-  font-size: 11px;
+  gap: var(--space-3);
+  font-size: var(--text-label);
   letter-spacing: 0.05em;
   color: var(--muted);
   padding: 20px 0 10px;
@@ -629,7 +658,7 @@ input:focus-visible {
 .ranking-row {
   display: grid;
   grid-template-columns: 1fr 95px 82px;
-  gap: 12px;
+  gap: var(--space-3);
   align-items: center;
   min-height: 90px;
 }
@@ -652,8 +681,8 @@ input:focus-visible {
   line-height: 1.35;
   font-size: 13px;
 }
-.rank-player span:not(.avatar) {
-  font-size: 11px;
+.rank-player > div > span {
+  font-size: var(--text-label);
   color: var(--muted);
   line-height: 1.5;
   margin-top: 4px;
@@ -665,14 +694,14 @@ input:focus-visible {
   display: flex;
   flex-direction: column;
   text-align: right;
-  font-variant-numeric: tabular-nums;
+  font-variant-numeric: var(--numeric-variant);
 }
 .rank-values strong {
   font-size: 13px;
   font-weight: 500;
 }
 .rank-values span {
-  font-size: 11px;
+  font-size: var(--text-label);
   color: var(--muted);
 }
 .difference {
@@ -682,7 +711,7 @@ input:focus-visible {
   font-size: 23px;
   font-weight: 600;
   white-space: nowrap;
-  font-variant-numeric: tabular-nums;
+  font-variant-numeric: var(--numeric-variant);
 }
 .lower .difference {
   color: var(--negative);
@@ -707,7 +736,7 @@ input:focus-visible {
 }
 .step {
   display: flex;
-  gap: 16px;
+  gap: var(--space-4);
 }
 .step-number {
   font-family: "Barlow Condensed", sans-serif;
@@ -731,16 +760,16 @@ input:focus-visible {
   background: var(--surface);
   display: flex;
   align-items: center;
-  gap: 24px;
+  gap: var(--space-6);
   border-left: 3px solid var(--secondary);
   border-radius: var(--radius);
 }
 .evolution .eyebrow {
-  font-size: 11px;
+  font-size: var(--text-label);
   max-width: 90px;
 }
 .evolution p {
-  font-size: 11px;
+  font-size: var(--text-label);
   color: var(--muted);
   flex: 1;
   margin: 0;
@@ -779,7 +808,7 @@ input:focus-visible {
 }
 .footer-links {
   display: flex;
-  gap: 24px;
+  gap: var(--space-6);
   margin-left: auto;
   font-size: 12px;
   flex-wrap: wrap;
@@ -808,8 +837,8 @@ input:focus-visible {
 .primary-link {
   display: inline-block;
   padding: 12px 18px;
-  background: var(--accent);
-  color: var(--background);
+  background: var(--action-primary);
+  color: var(--action-on-primary);
   font-weight: 600;
   border-radius: var(--radius);
   border: 0;
@@ -869,7 +898,7 @@ input:focus-visible {
   .pitch-panel {
     height: 330px;
   }
-  .rank-player .avatar {
+  .rank-player .preview-portrait {
     display: none;
   }
   .ranking-card {
@@ -878,13 +907,13 @@ input:focus-visible {
   .ranking-row,
   .ranking-columns {
     grid-template-columns: 1fr 75px 72px;
-    gap: 8px;
+    gap: var(--space-2);
   }
   .difference {
     font-size: 21px;
   }
   .evolution {
-    gap: 16px;
+    gap: var(--space-4);
   }
   .evolution p span {
     padding-inline: 5px;
@@ -905,7 +934,7 @@ input:focus-visible {
     padding: 10px 14px;
     min-height: 44px;
     border-radius: var(--radius);
-    font-size: 11px;
+    font-size: var(--text-label);
   }
   .nav-inner {
     position: relative;
@@ -1001,10 +1030,10 @@ input:focus-visible {
     font-size: clamp(28px, 8vw, 43px);
   }
   .metric-label {
-    font-size: 11px;
+    font-size: var(--text-label);
   }
   .metric > span:last-child {
-    font-size: 11px;
+    font-size: var(--text-label);
   }
   .evaluation-note {
     align-items: start;
@@ -1015,7 +1044,7 @@ input:focus-visible {
   .rankings-grid {
     grid-template-columns: 1fr;
   }
-  .rank-player .avatar {
+  .rank-player .preview-portrait {
     display: grid;
   }
   .ranking-row,
@@ -1042,7 +1071,7 @@ input:focus-visible {
   }
   .evolution {
     align-items: start;
-    gap: 12px;
+    gap: var(--space-3);
   }
   .evolution .eyebrow {
     max-width: 75px;
@@ -1067,7 +1096,7 @@ input:focus-visible {
     font-size: clamp(50px, 13.5vw, 64px);
   }
   .hero-kicker {
-    font-size: 11px;
+    font-size: var(--text-label);
     letter-spacing: 0.08em;
   }
   .hero-description {
@@ -1079,14 +1108,14 @@ input:focus-visible {
     min-height: 58px;
   }
   .search-control input {
-    font-size: 11px;
+    font-size: var(--text-label);
   }
   .search-arrow {
     width: 32px;
     height: 36px;
   }
   .search-hint {
-    font-size: 11px;
+    font-size: var(--text-label);
   }
   .search-dropdown {
     top: 91px;
@@ -1098,36 +1127,36 @@ input:focus-visible {
     padding-left: 10px;
   }
   .metric-label {
-    font-size: 11px;
+    font-size: var(--text-label);
     letter-spacing: 0.01em;
   }
   .metric > span:last-child {
-    font-size: 11px;
+    font-size: var(--text-label);
   }
   .section-heading {
     align-items: center;
-    gap: 8px;
+    gap: var(--space-2);
   }
   .section-heading > .text-link {
-    font-size: 11px;
+    font-size: var(--text-label);
     white-space: nowrap;
   }
   .section-heading .eyebrow {
-    font-size: 11px;
+    font-size: var(--text-label);
   }
   .ranking-row,
   .ranking-columns {
     grid-template-columns: minmax(0, 1fr) 65px 65px;
-    gap: 8px;
+    gap: var(--space-2);
   }
-  .rank-player .avatar {
+  .rank-player .preview-portrait {
     display: none;
   }
   .rank-player strong {
-    font-size: 11px;
+    font-size: var(--text-label);
   }
-  .rank-player span:not(.avatar) {
-    font-size: 11px;
+  .rank-player > div > span {
+    font-size: var(--text-label);
   }
   .rank-values strong {
     font-size: 12px;
@@ -1136,16 +1165,16 @@ input:focus-visible {
     font-size: 20px;
   }
   .ranking-columns {
-    font-size: 11px;
+    font-size: var(--text-label);
   }
   .ranking-heading h3 {
-    font-size: 11px;
+    font-size: var(--text-label);
   }
   .ranking-heading h3 > span {
     margin-right: 4px;
   }
   .ranking-disclaimer {
-    font-size: 11px;
+    font-size: var(--text-label);
   }
   .steps {
     grid-template-columns: 1fr;
@@ -1165,7 +1194,7 @@ input:focus-visible {
     flex-basis: 100%;
   }
   .evolution p {
-    font-size: 11px;
+    font-size: var(--text-label);
   }
   .method .section-heading {
     align-items: start;
@@ -1198,9 +1227,9 @@ a,
 input,
 select {
   transition:
-    background-color 160ms,
-    color 160ms,
-    border-color 160ms;
+    background-color var(--duration-control),
+    color var(--duration-control),
+    border-color var(--duration-control);
 }
 .footer-links a {
   display: inline-flex;
@@ -1232,18 +1261,18 @@ select {
     padding-inline: 16px;
   }
   .snapshot-intro > a {
-    font-size: 11px;
+    font-size: var(--text-label);
   }
   .metric {
     min-width: 0;
     padding-left: 10px;
   }
   .metric-label {
-    font-size: 11px;
+    font-size: var(--text-label);
     letter-spacing: 0;
   }
   .metric > span:last-child {
-    font-size: 11px;
+    font-size: var(--text-label);
   }
   .main-nav a[aria-current] {
     background: var(--surface-3);
@@ -1267,7 +1296,7 @@ select {
   .metric {
     display: grid;
     grid-template-columns: minmax(0, 1fr) auto;
-    column-gap: 16px;
+    column-gap: var(--space-4);
     padding: 14px 0;
     border-left: 0;
     border-top: 1px solid var(--border);
@@ -1291,7 +1320,7 @@ select {
     font-size: 12px;
   }
   .ranking-columns {
-    font-size: 11px;
+    font-size: var(--text-label);
   }
   .ranking-row,
   .ranking-columns {

@@ -15,8 +15,12 @@ export function PlayerHeader({
       </Link>
       <div className="pp-header-main">
         <div className="pp-portrait">
-          <PlayerAvatar name={player.name} />
-          <span>
+          <PlayerAvatar
+            name={player.name}
+            position={season?.position ?? player.position}
+            size="hero"
+          />
+          <span className="sr-only">
             {season?.position ?? player.position ?? "POSITION UNMAPPED"}
           </span>
         </div>

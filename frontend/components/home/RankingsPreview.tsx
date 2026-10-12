@@ -40,7 +40,12 @@ export function RankingCard({
                   className="ranking-row"
                 >
                   <div className="rank-player">
-                    <PlayerAvatar name={player.player_name} />
+                    <PlayerAvatar
+                      name={player.player_name}
+                      position={player.position}
+                      size="sm"
+                      className="preview-portrait"
+                    />
                     <div>
                       <strong>{player.player_name}</strong>
                       <span>

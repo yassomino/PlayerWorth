@@ -1,6 +1,5 @@
-/* Shared roles for Session 14 surfaces. Recolor here or through root tokens. */
+/* Shared analytics roles; layout remains owned by the existing page selectors. */
 .analytics-page {
-  --chart-grid: var(--border);
   --chart-track: var(--surface-raised);
   padding-block: 60px 72px;
   --chart-primary: var(--chart-1);
@@ -54,11 +53,11 @@
   font-size: 15px;
 }
 .lab-current {
-  padding: 28px;
+  padding: var(--space-6);
   min-width: 0;
   border: 0;
-  border-radius: var(--radius-surface);
-  background: linear-gradient(150deg, var(--surface-2), var(--surface-1));
+  border-radius: var(--radius-panel);
+  background: var(--surface-data);
 }
 .lab-current h2 {
   font-size: 34px;
@@ -75,17 +74,17 @@
   border-block: 1px solid var(--border);
   padding-block: 18px;
   margin-block: 20px;
-  gap: 16px;
+  gap: var(--space-4);
 }
 .lab-current dt {
-  font-size: 11px;
+  font-size: var(--text-label);
   color: var(--muted);
 }
 .lab-current dd {
   font-family: var(--font-display);
   font-size: 36px;
   margin: 0;
-  font-variant-numeric: tabular-nums;
+  font-variant-numeric: var(--numeric-variant);
 }
 .analytics-jump {
   display: flex;
@@ -93,7 +92,7 @@
   flex-wrap: wrap;
   border-block: 1px solid var(--border);
   padding: 18px 0;
-  font-size: 11px;
+  font-size: var(--text-label);
 }
 .analytics-jump a:hover,
 .analytics-link:hover {
@@ -160,7 +159,7 @@
   font-size: 12px;
 }
 .analytics-note {
-  font-size: 11px;
+  font-size: var(--text-label);
   color: var(--muted);
   line-height: 1.75;
 }
@@ -175,7 +174,7 @@
   width: 100%;
   border-collapse: collapse;
   text-align: left;
-  font-variant-numeric: tabular-nums;
+  font-variant-numeric: var(--numeric-variant);
   font-size: 12px;
 }
 .analytics-table th,
@@ -185,7 +184,7 @@
 }
 .analytics-table thead th {
   color: var(--muted);
-  font-size: 11px;
+  font-size: var(--text-label);
   font-weight: 500;
   background: var(--surface);
   white-space: nowrap;
@@ -217,14 +216,14 @@
 }
 .lab-folds {
   display: grid;
-  gap: 16px;
+  gap: var(--space-4);
   margin-block: 32px;
 }
 .lab-folds article {
   display: grid;
   grid-template-columns: 70px 1fr 225px;
   align-items: center;
-  gap: 24px;
+  gap: var(--space-6);
 }
 .lab-fold-track {
   display: grid;
@@ -238,7 +237,7 @@
 }
 .lab-fold-track small {
   display: block;
-  font-size: 11px;
+  font-size: var(--text-label);
 }
 .lab-fold-track .training {
   background: var(--surface-raised);
@@ -253,14 +252,14 @@
   border-style: dashed;
 }
 .lab-folds p {
-  font-size: 11px;
+  font-size: var(--text-label);
 }
 .lab-pooled {
-  padding: 28px;
+  padding: var(--space-6);
   margin-top: 36px;
   border: 0;
-  border-radius: var(--radius-surface);
-  background: var(--surface-2);
+  border-radius: var(--radius-panel);
+  background: var(--surface-data);
 }
 .lab-pooled h3 {
   margin-top: 12px;
@@ -277,27 +276,27 @@
   padding-top: 22px;
 }
 .lab-metrics dt {
-  font-size: 11px;
+  font-size: var(--text-label);
   color: var(--muted);
 }
 .lab-metrics dd {
   font-family: var(--font-display);
   font-size: clamp(20px, 2.4vw, 32px);
   margin: 6px 0 0;
-  font-variant-numeric: tabular-nums;
+  font-variant-numeric: var(--numeric-variant);
   overflow-wrap: anywhere;
 }
 .lab-decisions {
   display: grid;
   grid-template-columns: 1fr 1fr;
   margin-top: 36px;
-  gap: 24px;
+  gap: var(--space-6);
 }
 .lab-decisions article {
-  padding: 28px;
+  padding: var(--space-6);
   border: 0;
-  border-radius: var(--radius-surface);
-  background: var(--surface-1);
+  border-radius: 0;
+  background: var(--surface-editorial);
 }
 .lab-decisions h3 {
   margin-top: 12px;
@@ -323,7 +322,7 @@
 .lab-decisions li,
 .lab-decisions dl > div {
   display: flex;
-  gap: 16px;
+  gap: var(--space-4);
   align-items: baseline;
   justify-content: space-between;
   padding: 10px 0;
@@ -331,7 +330,7 @@
   font-size: 12px;
 }
 .lab-decisions li strong {
-  font-variant-numeric: tabular-nums;
+  font-variant-numeric: var(--numeric-variant);
 }
 .lab-decisions dd {
   margin: 0;
@@ -343,10 +342,10 @@
 }
 .lab-importance {
   margin: 28px 0;
-  padding: 28px;
-  background: var(--surface);
+  padding: var(--space-6);
+  background: var(--surface-data);
   border: 0;
-  border-radius: var(--radius-surface);
+  border-radius: var(--radius-panel);
 }
 .lab-importance figcaption {
   color: var(--muted);
@@ -370,7 +369,7 @@
 .lab-importance strong {
   text-align: right;
   font-weight: 500;
-  font-variant-numeric: tabular-nums;
+  font-variant-numeric: var(--numeric-variant);
 }
 .lab-bar-track {
   display: block;
@@ -430,8 +429,8 @@
   border-left: 1px solid var(--border);
   padding: 16px 0 16px 44px;
   display: grid;
-  gap: 8px;
-  font-size: 11px;
+  gap: var(--space-2);
+  font-size: var(--text-label);
   letter-spacing: 0.12em;
   color: var(--muted);
 }
@@ -453,12 +452,12 @@
 }
 .rankings-toggle {
   display: flex;
-  gap: 8px;
+  gap: var(--space-2);
 }
 .rankings-toggle button {
   padding: 12px 18px;
-  background: transparent;
-  color: var(--muted);
+  background: var(--action-secondary);
+  color: var(--action-text);
   border-radius: var(--radius);
   font-size: 12px;
   border: 1px solid var(--control-border);
@@ -507,12 +506,12 @@
 .rankings-summary {
   display: flex;
   justify-content: space-between;
-  gap: 16px;
+  gap: var(--space-4);
   border-top: 1px solid var(--border);
   padding-top: 15px;
 }
 .rankings-summary p {
-  font-size: 11px;
+  font-size: var(--text-label);
   margin: 0;
 }
 .rankings-summary strong {
@@ -527,7 +526,7 @@
   text-align: left;
 }
 .rankings-table thead {
-  font-size: 11px;
+  font-size: var(--text-label);
   color: var(--muted);
 }
 .rankings-table thead th {
@@ -551,26 +550,26 @@
 }
 .rankings-player a {
   display: flex;
-  gap: 12px;
+  gap: var(--space-3);
   align-items: center;
   font-weight: 500;
   min-height: 44px;
 }
+.rankings-player a > span:not([data-size]) {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
 .rankings-player a:hover strong {
   text-decoration: underline;
 }
-.rankings-player .avatar {
-  width: 36px;
-  height: 42px;
-  flex-shrink: 0;
-}
+
 .rankings-player strong {
   display: block;
   font-size: 14px;
 }
 .rankings-player small {
   display: block;
-  font-size: 11px;
+  font-size: var(--text-label);
   color: var(--muted);
   font-weight: 400;
   margin-top: 4px;
@@ -588,7 +587,7 @@
   font-family: var(--font-display);
   font-size: 26px;
   font-weight: 600;
-  font-variant-numeric: tabular-nums;
+  font-variant-numeric: var(--numeric-variant);
 }
 .rankings-observed strong {
   color: var(--muted);
@@ -605,7 +604,7 @@
   font-size: 28px;
   line-height: 1.2;
   font-weight: 600;
-  font-variant-numeric: tabular-nums;
+  font-variant-numeric: var(--numeric-variant);
 }
 .rankings-delta .positive strong {
   color: var(--positive);
@@ -614,7 +613,7 @@
   color: var(--negative);
 }
 .rankings-delta .pp-delta span {
-  font-size: 11px;
+  font-size: var(--text-label);
   color: var(--muted);
 }
 .analytics-empty {
@@ -686,7 +685,7 @@
   }
   .analytics-jump {
     gap: 12px 24px;
-    font-size: 11px;
+    font-size: var(--text-label);
   }
   .lab-current {
     padding: 20px;
@@ -723,7 +722,7 @@
   }
   .lab-explainers {
     grid-template-columns: 1fr;
-    gap: 12px;
+    gap: var(--space-3);
   }
   .lab-explainers article {
     border-left: 1px solid var(--border);
@@ -738,11 +737,11 @@
   }
   .lab-fold-track > span {
     padding: 9px 3px;
-    font-size: 11px;
+    font-size: var(--text-label);
     text-align: center;
   }
   .lab-fold-track small {
-    font-size: 11px;
+    font-size: var(--text-label);
   }
   .lab-pooled {
     padding: 20px;
@@ -765,8 +764,8 @@
   }
   .lab-importance li {
     grid-template-columns: 118px 1fr 64px;
-    gap: 8px;
-    font-size: 11px;
+    gap: var(--space-2);
+    font-size: var(--text-label);
   }
   .lab-bar-track {
     height: 12px;
@@ -777,14 +776,14 @@
   .rankings-controls {
     align-items: stretch;
     flex-direction: column;
-    gap: 16px;
+    gap: var(--space-4);
   }
   .rankings-toggle {
     display: grid;
     grid-template-columns: 1fr 1fr;
   }
   .rankings-toggle button {
-    font-size: 11px;
+    font-size: var(--text-label);
     padding: 10px 8px;
   }
   .rankings-toggle button span {
@@ -839,9 +838,7 @@
     grid-column: 2 / 4;
     grid-row: 1;
   }
-  .rankings-player .avatar {
-    display: none;
-  }
+
   .rankings-player a {
     justify-content: space-between;
   }
@@ -860,7 +857,7 @@
   }
   .rankings-mobile-label {
     display: block;
-    font-size: 11px;
+    font-size: var(--text-label);
     color: var(--muted);
   }
   .rankings-table tbody td.rankings-delta {
@@ -873,7 +870,7 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
-    gap: 8px;
+    gap: var(--space-2);
   }
   .rankings-delta .pp-delta span {
     max-width: 145px;
@@ -920,9 +917,9 @@
     border-top: 0;
   }
   .rankings-mobile-label {
-    font-size: 11px;
+    font-size: var(--text-label);
   }
   .rankings-delta .pp-delta span {
-    font-size: 11px;
+    font-size: var(--text-label);
   }
 }

@@ -162,7 +162,11 @@ export function PlayerSearch() {
                   onMouseEnter={() => setActive(index)}
                   onClick={() => setOpen(false)}
                 >
-                  <PlayerAvatar name={player.name} />
+                  <PlayerAvatar
+                    name={player.name}
+                    position={player.position}
+                    size="xs"
+                  />
                   <span className="result-info">
                     <strong>{player.name}</strong>
                     <span>
